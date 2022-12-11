@@ -1,0 +1,51 @@
+﻿@page
+@model My_Note_Taker.Pages.Notes.IndexModel
+@{
+}
+
+<br>
+<h2> Lists Of Notes</h2>
+<br>
+<a class='btn btn-success' href="/Notes/Create"> New Note </a>
+
+<br>
+
+@foreach(var item in Model.listNotes)
+      {
+<div class="card" style="width: 30rem;">
+  <div class="card-body">
+            <h5 class="card-title">@item.title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@item.created_at</h6>
+            <p class="card-text">@item.notes</p>
+            <a href="/Notes/Edit?id=@item.id"> <button class='btn btn-primary'> Edit</button>  </a>
+            <a href="/Notes/Delete?id=@item.id"><button class='btn btn-danger' onclick="return confirm('Are sure wants to delete?');">Delete</button>  </a>
+  </div>
+</div>
+<br>
+      }
+
+@*<table class=" table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Notes</th>
+            <th>Created at</th>
+        </tr> 
+    </thead>
+    <tbody>
+      @foreach(var item in Model.listNotes)
+      {
+      <tr>
+        <td>@item.id</td>
+        <td>@item.title</td>
+        <td>@item.notes</td>
+        <td>@item.created_at</td>
+        <td>
+                    <a class='btn btn-primary' href="/Notes/Edit?id=@item.id"> Edit </a>
+                    <a class='btn btn-danger' href="/Notes/Delete?id=@item.id"> Delete </a>
+        </td>
+      </tr>
+      }
+    </tbody>
+</table>*@

@@ -1,0 +1,55 @@
+﻿@page
+@model My_Note_Taker.Pages.Notes.CreateModel
+@{
+}
+
+<br>
+<h2>New Note</h2>
+
+@if(Model.errorMessage.Length > 0){
+    <div class = ' alert alert-warning alert-dismissible fade show' role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss = 'alert' aria = 'close'></button>
+    </div>
+}
+
+<form method = "post">
+   <div class="raw mb-3 ">
+       <lable class=" col-sm-3 col-form-label" > Title</lable>
+       <div class=" col-sm-6">
+         <input type="text" class=" form-control" name="title" value="@Model.noteInfo.title" />
+       </div>
+
+   </div>
+
+    <div class="raw mb-3 ">
+        <lable class=" col-sm-3 col-form-label"> Notes</lable>
+        <div class=" col-sm-6">
+            <input type="text" class=" form-control" name="notes" value="@Model.noteInfo.notes" />
+        </div>
+
+    </div>
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class=' alert alert-warning alert-dismissible fade show' role="alert">
+            <strong>@Model.successMessage</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria='close'></button>
+        </div>
+    }
+
+
+    <div class=" row mb-3">
+       <div  class="offset-sm-3 col-sm-3 dgrid" >
+         <button type="submit" class=" btn-primary">Submit</button>
+       </div>
+        <div class="col-sm-3 dgrid">
+            <a class=" btn btn-outline-primary" herf="/" role="button"> Cancle</a>
+        </div>
+
+    </div>
+</form>0
+
+
+
+
